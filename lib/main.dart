@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/themes.dart';
-import 'package:tech_blog/view/splash_screen.dart';
+import 'package:tech_blog/view/register_intro.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         Locale('fa'), // Farsi
       ],
       debugShowCheckedModeBanner: false,
-      theme: themeData,
-      home: const SplashScreen(),
+      theme: AppThemes.lightTheme,
+      home: const RegisterIntro(),
     );
   }
 }
