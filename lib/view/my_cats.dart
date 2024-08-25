@@ -79,13 +79,14 @@ class _MyCatsState extends State<MyCats> {
                                   childAspectRatio: 0.3),
                           itemBuilder: ((context, index) {
                             return InkWell(
-                              onTap: () {
-                                setState(() {
-                                  myCats.add(HashTagModel(title: tagList[index].title))
-                                });
-                              },
-                              
-                              child: MainTags(textTheme: textTheme, index: index));
+                                onTap: () {
+                                  setState(() {
+                                    myCats.add(HashTagModel(
+                                        title: tagList[index].title));
+                                  });
+                                },
+                                child: MainTags(
+                                    textTheme: textTheme, index: index));
                           })),
                     ),
                   ),
