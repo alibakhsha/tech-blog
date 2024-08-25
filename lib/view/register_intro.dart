@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/view/my_cats.dart';
 import 'package:validators/validators.dart';
 import 'package:tech_blog/my_string.dart';
 
@@ -132,7 +133,13 @@ class RegisterIntro extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MyCats(),));
+
+
+
+                  },
                   child: const Text("ادامه"),
                 )
               ],

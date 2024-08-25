@@ -1,4 +1,3 @@
-
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/data_models.dart';
 
@@ -20,6 +19,7 @@ List<HashTagModel> tagList = [
   HashTagModel(title: "iot"),
   HashTagModel(title: "دارت"),
 ];
+late List<HashTagModel> myCats;
 
 List<BlogModel> blogList = [
   BlogModel(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/my_component.dart';
 import 'package:tech_blog/my_string.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -271,39 +272,15 @@ class HomePageTagList extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
-            child: Container(
-                height: 60,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(24)),
-                    gradient: LinearGradient(
-                        colors: GradientColors.tags,
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-                  child: Row(
-                    children: [
-                      ImageIcon(
-                        AssetImage(Assets.icons.hashtagicon.path),
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        tagList[index].title!,
-                        style: textTheme.headlineSmall,
-                      )
-                    ],
-                  ),
-                )),
+            child: MainTags(textTheme: textTheme,index: index,),
           );
         },
       ),
     );
   }
 }
+
+
 
 class HomePagePoster extends StatelessWidget {
   const HomePagePoster({

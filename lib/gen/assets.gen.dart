@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bluepen.png
   AssetGenImage get bluepen => const AssetGenImage('assets/icons/bluepen.png');
 
+  /// File path: assets/icons/down_cat_arrow.svg
+  String get downCatArrow => 'assets/icons/down_cat_arrow.svg';
+
   /// File path: assets/icons/hashtagicon.png
   AssetGenImage get hashtagicon =>
       const AssetGenImage('assets/icons/hashtagicon.png');
@@ -32,8 +35,8 @@ class $AssetsIconsGen {
   AssetGenImage get wbtn => const AssetGenImage('assets/icons/wbtn.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [bluemic, bluepen, hashtagicon, homebtn, userbtn, wbtn];
+  List<dynamic> get values =>
+      [bluemic, bluepen, downCatArrow, hashtagicon, homebtn, userbtn, wbtn];
 }
 
 class $AssetsImagesGen {
