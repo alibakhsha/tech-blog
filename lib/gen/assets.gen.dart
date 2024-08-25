@@ -62,17 +62,16 @@ class $AssetsImagesGen {
   AssetGenImage get splashSc =>
       const AssetGenImage('assets/images/splashSc.png');
 
-  /// File path: assets/images/techBlog.png
-  AssetGenImage get techBlog =>
-      const AssetGenImage('assets/images/techBlog.png');
+  /// File path: assets/images/tech_bot.svg
+  String get techBot => 'assets/images/tech_bot.svg';
 
   /// File path: assets/images/user_profile.png
   AssetGenImage get userProfile =>
       const AssetGenImage('assets/images/user_profile.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [a1, a2, a3, a4, logo, posterTest, splashSc, techBlog, userProfile];
+  List<dynamic> get values =>
+      [a1, a2, a3, a4, logo, posterTest, splashSc, techBot, userProfile];
 }
 
 class Assets {
