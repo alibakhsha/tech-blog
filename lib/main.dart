@@ -3,15 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/themes.dart';
-import 'package:tech_blog/view/home_scrren.dart';
-import 'package:tech_blog/view/register_intro.dart';
 import 'package:tech_blog/view/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: solidColors.statusBarColor,
+      statusBarColor: SolidColors.statusBarColor,
       statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: solidColors.systemNavigationBarColor));
+      systemNavigationBarColor: SolidColors.systemNavigationBarColor));
   runApp(const MyApp());
 }
 
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: themeData,
-      home: RegisterIntro(),
+      home: const SplashScreen(),
     );
   }
 }

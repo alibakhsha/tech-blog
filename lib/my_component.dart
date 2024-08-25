@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tech_blog/my_colors.dart';
 
-class techDivider extends StatelessWidget {
-  const techDivider({
+class TechDivider extends StatelessWidget {
+  const TechDivider({
     super.key,
     required this.size,
   });
@@ -13,9 +13,9 @@ class techDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       thickness: 1,
-      color: solidColors.dividerColor,
-      indent: size.width/6,
-      endIndent: size.width/6,
+      color: SolidColors.dividerColor,
+      indent: size.width / 6,
+      endIndent: size.width / 6,
     );
   }
 }

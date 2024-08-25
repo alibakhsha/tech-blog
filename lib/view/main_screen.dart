@@ -5,6 +5,8 @@ import 'package:tech_blog/view/home_scrren.dart';
 import 'package:tech_blog/view/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -17,11 +19,10 @@ class _MainScreenState extends State<MainScreen> {
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 10;
 
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: solidColors.scaffoldBg,
+        backgroundColor: SolidColors.scaffoldBg,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -34,19 +35,20 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
       ),
-      backgroundColor: solidColors.scaffoldBg,
+      backgroundColor: SolidColors.scaffoldBg,
       body: Stack(
         children: [
-          Center(
-              child: Positioned.fill(
-                  child: IndexedStack(
-                    index: selectedPageIndex,
-                    children: [
-                      homeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-                      ProfileScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin)
-                    ],
-                  ))),
-          bottomNavigation(
+          Positioned.fill(
+              child: IndexedStack(
+                      index: selectedPageIndex,
+                      children: [
+          HomeScreen(
+              size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+          ProfileScreen(
+              size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+                      ],
+                    )),
+          BottomNavigation(
             size: size,
             bodyMargin: bodyMargin,
             changeScreen: (int value) {
@@ -61,8 +63,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class bottomNavigation extends StatelessWidget {
-  const bottomNavigation({
+class BottomNavigation extends StatelessWidget {
+  const BottomNavigation({
     super.key,
     required this.size,
     required this.bodyMargin,

@@ -21,92 +21,94 @@ class ProfileScreen extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            Assets.images.userProfile.path,
-            height: 100,
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ImageIcon(
-                AssetImage(Assets.icons.bluepen.path),
-                color: solidColors.seeMore,
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              Text(MyString.imageProfileEdit,
-                  style: Theme.of(context).textTheme.headlineMedium)
-            ],
-          ),
-          const SizedBox(
-            height: 60,
-          ),
-          Text(
-            "فاطمه امیری",
-            style: textTheme.displaySmall,
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          Text(
-            "fatemeamiri@gmail.com",
-            style: textTheme.displayMedium,
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          techDivider(size: size),
-          InkWell(
-            onTap: () {},
-            splashColor: solidColors.primaryColor,
-            child: SizedBox(
-                height: 45,
-                child: Center(
-                  child: Text(
-                    MyString.myFavBlog,
-                    style: textTheme.displayMedium,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 24),
+            child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+            Image.asset(
+              Assets.images.userProfile.path,
+              height: 100,
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ImageIcon(
+                  AssetImage(Assets.icons.bluepen.path),
+                  color: SolidColors.seeMore,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                Text(MyString.imageProfileEdit,
+                    style: Theme.of(context).textTheme.headlineMedium)
+              ],
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            Text(
+              "فاطمه امیری",
+              style: textTheme.displaySmall,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Text(
+              "fatemeamiri@gmail.com",
+              style: textTheme.displayMedium,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            TechDivider(size: size),
+            InkWell(
+              onTap: () {},
+              splashColor: SolidColors.primaryColor,
+              child: SizedBox(
+                  height: 45,
+                  child: Center(
+                    child: Text(
+                      MyString.myFavBlog,
+                      style: textTheme.displayMedium,
+                    ),
+                  )),
+            ),
+            TechDivider(size: size),
+            InkWell(
+              onTap: () {},
+              splashColor: SolidColors.primaryColor,
+              child: SizedBox(
+                  height: 45,
+                  child: Center(
+                    child: Text(
+                      MyString.myFavPodcast,
+                      style: textTheme.displayMedium,
+                    ),
+                  )),
+            ),
+            TechDivider(size: size),
+            InkWell(
+              onTap: () {},
+              splashColor: SolidColors.primaryColor,
+              child: SizedBox(
+                  height: 45,
+                  child: Center(
+                    child: Text(
+                      MyString.logOut,
+                      style: textTheme.displayMedium,
+                    ),
+                  )),
+            ),
+            const SizedBox(
+              height: 160,
+            ),
+                    ],
                   ),
-                )),
-          ),
-          techDivider(size: size),
-          InkWell(
-            onTap: () {},
-            splashColor: solidColors.primaryColor,
-            child: SizedBox(
-                height: 45,
-                child: Center(
-                  child: Text(
-                    MyString.myFavPodcast,
-                    style: textTheme.displayMedium,
-                  ),
-                )),
-          ),
-          techDivider(size: size),
-          InkWell(
-            onTap: () {},
-            splashColor: solidColors.primaryColor,
-            child: SizedBox(
-                height: 45,
-                child: Center(
-                  child: Text(
-                    MyString.logOut,
-                    style: textTheme.displayMedium,
-                  ),
-                )),
-          ),
-
-          const SizedBox(
-            height: 160,
-          ),
-        ],
-      )),
+          )),
     );
   }
 }

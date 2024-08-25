@@ -8,7 +8,7 @@ var themeData = ThemeData(
         fontFamily: 'dana',
         fontSize: 16,
         fontWeight: FontWeight.w700,
-        color: solidColors.posterTitle),
+        color: SolidColors.posterTitle),
     titleLarge: TextStyle(
       fontFamily: 'dana',
       fontSize: 18,
@@ -18,7 +18,7 @@ var themeData = ThemeData(
         fontFamily: 'dana',
         fontSize: 14,
         fontWeight: FontWeight.w300,
-        color: solidColors.posterSubTitle),
+        color: SolidColors.posterSubTitle),
     bodyLarge: TextStyle(
         fontFamily: 'dana', fontSize: 13, fontWeight: FontWeight.w300),
     displayMedium: TextStyle(
@@ -27,11 +27,11 @@ var themeData = ThemeData(
         fontFamily: 'dana',
         fontSize: 16,
         fontWeight: FontWeight.w700,
-        color: solidColors.primaryColor),
+        color: SolidColors.primaryColor),
     bodyMedium: TextStyle(
       fontFamily: 'dana',
       fontSize: 16,
-      color: solidColors.welcomeColor,
+      color: SolidColors.welcomeColor,
     ),
     headlineLarge: TextStyle(
       fontFamily: 'dana',
@@ -41,7 +41,7 @@ var themeData = ThemeData(
     headlineMedium: TextStyle(
         fontFamily: 'dana',
         fontSize: 14,
-        color: solidColors.seeMore,
+        color: SolidColors.seeMore,
         fontWeight: FontWeight.w700),
     headlineSmall: TextStyle(
         fontFamily: 'dana',

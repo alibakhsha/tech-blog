@@ -5,6 +5,8 @@ import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/view/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -15,18 +17,16 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        
-        builder: (context)=> MainScreen())
-        
-        );
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const MainScreen()));
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: solidColors.scaffoldBg,
+      backgroundColor: SolidColors.scaffoldBg,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 height: 32,
               ),
               const SpinKitFadingCube(
-                color: solidColors.primaryColor,
+                color: SolidColors.primaryColor,
                 size: 32.0,
               )
             ],

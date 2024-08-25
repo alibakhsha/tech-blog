@@ -4,8 +4,8 @@ import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/my_string.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
     required this.size,
     required this.textTheme,
@@ -24,34 +24,40 @@ class homeScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
           child: Column(
             children: [
-              homePagePoster(size: size, textTheme: textTheme),
+              HomePagePoster(size: size, textTheme: textTheme),
 
               const SizedBox(
                 height: 16,
               ),
 
-              homePageTagList(bodyMargin: bodyMargin, textTheme: textTheme),
+              HomePageTagList(bodyMargin: bodyMargin, textTheme: textTheme),
 
               const SizedBox(
                 height: 32,
               ),
               // see more blog
-              homePageSeeMore(
-                  bodyMargin: bodyMargin, text: MyString.viewHotestBlog,icon: AssetImage(Assets.icons.bluepen.path),),
+              HomePageSeeMore(
+                bodyMargin: bodyMargin,
+                text: MyString.viewHotestBlog,
+                icon: AssetImage(Assets.icons.bluepen.path),
+              ),
 
               // blog list
-              homePageBlogList(
+              HomePageBlogList(
                   size: size, bodyMargin: bodyMargin, textTheme: textTheme),
 
               const SizedBox(
                 height: 32,
               ),
               // see more pudcast
-              homePageSeeMore(
-                  bodyMargin: bodyMargin, text: MyString.viewHotestPodCasts,icon: AssetImage(Assets.icons.bluemic.path),),
+              HomePageSeeMore(
+                bodyMargin: bodyMargin,
+                text: MyString.viewHotestPodCasts,
+                icon: AssetImage(Assets.icons.bluemic.path),
+              ),
 
               // Podcast list
-              homePagePodcastList(size: size, bodyMargin: bodyMargin),
+              HomePagePodcastList(size: size, bodyMargin: bodyMargin),
 
               const SizedBox(
                 height: 50,
@@ -64,8 +70,8 @@ class homeScreen extends StatelessWidget {
   }
 }
 
-class homePagePodcastList extends StatelessWidget {
-  const homePagePodcastList({
+class HomePagePodcastList extends StatelessWidget {
+  const HomePagePodcastList({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -95,7 +101,8 @@ class homePagePodcastList extends StatelessWidget {
                     child: Stack(children: [
                       Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16)),
                             image: DecorationImage(
                                 image: AssetImage(podcastList[index].imageUrl),
                                 fit: BoxFit.cover)),
@@ -103,7 +110,7 @@ class homePagePodcastList extends StatelessWidget {
                     ]),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Text(
@@ -119,8 +126,8 @@ class homePagePodcastList extends StatelessWidget {
   }
 }
 
-class homePageBlogList extends StatelessWidget {
-  const homePageBlogList({
+class HomePageBlogList extends StatelessWidget {
+  const HomePageBlogList({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -152,11 +159,12 @@ class homePageBlogList extends StatelessWidget {
                     child: Stack(children: [
                       Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(16)),
                             image: DecorationImage(
                                 image: NetworkImage(blogList[index].imageUrl),
                                 fit: BoxFit.cover)),
-                        foregroundDecoration: BoxDecoration(
+                        foregroundDecoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(16)),
                             gradient: LinearGradient(
                                 begin: Alignment.bottomCenter,
@@ -178,10 +186,10 @@ class homePageBlogList extends StatelessWidget {
                               children: [
                                 Text(blogList[index].views,
                                     style: textTheme.titleMedium),
-                                SizedBox(
+                                const SizedBox(
                                   width: 4,
                                 ),
-                                Icon(
+                                const Icon(
                                   Icons.remove_red_eye_sharp,
                                   color: Colors.white,
                                   size: 16,
@@ -211,8 +219,8 @@ class homePageBlogList extends StatelessWidget {
   }
 }
 
-class homePageSeeMore extends StatelessWidget {
-  const homePageSeeMore({
+class HomePageSeeMore extends StatelessWidget {
+  const HomePageSeeMore({
     super.key,
     required this.bodyMargin,
     required this.text,
@@ -231,9 +239,9 @@ class homePageSeeMore extends StatelessWidget {
         children: [
           ImageIcon(
             icon,
-            color: solidColors.seeMore,
+            color: SolidColors.seeMore,
           ),
-          SizedBox(
+          const SizedBox(
             width: 8,
           ),
           Text(text, style: Theme.of(context).textTheme.headlineMedium)
@@ -243,8 +251,8 @@ class homePageSeeMore extends StatelessWidget {
   }
 }
 
-class homePageTagList extends StatelessWidget {
-  const homePageTagList({
+class HomePageTagList extends StatelessWidget {
+  const HomePageTagList({
     super.key,
     required this.bodyMargin,
     required this.textTheme,
@@ -265,7 +273,7 @@ class homePageTagList extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
             child: Container(
                 height: 60,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
                     gradient: LinearGradient(
                         colors: GradientColors.tags,
@@ -280,7 +288,7 @@ class homePageTagList extends StatelessWidget {
                         color: Colors.white,
                         size: 16,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Text(
@@ -297,8 +305,8 @@ class homePageTagList extends StatelessWidget {
   }
 }
 
-class homePagePoster extends StatelessWidget {
-  const homePagePoster({
+class HomePagePoster extends StatelessWidget {
+  const HomePagePoster({
     super.key,
     required this.size,
     required this.textTheme,
@@ -315,12 +323,12 @@ class homePagePoster extends StatelessWidget {
           width: size.width / 1.19,
           height: size.height / 4.2,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
             image: DecorationImage(
                 image: AssetImage(homePagePosterMap["imageAsset"]),
                 fit: BoxFit.cover),
           ),
-          foregroundDecoration: BoxDecoration(
+          foregroundDecoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(16)),
               gradient: LinearGradient(
                   colors: GradientColors.homePosterCoverGradiant,
@@ -346,10 +354,10 @@ class homePagePoster extends StatelessWidget {
                     children: [
                       Text(homePagePosterMap["view"],
                           style: textTheme.titleMedium),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
-                      Icon(
+                      const Icon(
                         Icons.remove_red_eye_sharp,
                         color: Colors.white,
                         size: 16,

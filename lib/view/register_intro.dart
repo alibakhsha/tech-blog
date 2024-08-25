@@ -10,7 +10,6 @@ class RegisterIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
-    var size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
       body: Center(
@@ -42,9 +41,9 @@ class RegisterIntro extends StatelessWidget {
                 ), backgroundColor: WidgetStateProperty.resolveWith(
                   (states) {
                     if (states.contains(WidgetState.pressed)) {
-                      return solidColors.seeMore;
+                      return SolidColors.seeMore;
                     }
-                    return solidColors.primaryColor;
+                    return SolidColors.primaryColor;
                   },
                 )),
                 child: const Text("بزن بریم"),
