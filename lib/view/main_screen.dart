@@ -5,11 +5,13 @@ import 'package:tech_blog/view/home_scrren.dart';
 import 'package:tech_blog/view/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
+
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 class _MainScreenState extends State<MainScreen> {
   var selectedPageIndex = 0;
@@ -20,13 +22,71 @@ class _MainScreenState extends State<MainScreen> {
     double bodyMargin = size.width / 10;
 
     return Scaffold(
+      key: _key,
+      drawer: Drawer(
+        backgroundColor: SolidColors.scaffoldBg,
+        child: Padding(
+          padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
+          child: ListView(
+            children: [
+              DrawerHeader(
+                  child: Image.asset(
+                Assets.images.logo.path,
+                scale: 3,
+              )),
+              ListTile(
+                onTap: () {},
+                title: Text(
+                  "پروفایل کاربری",
+                  style: textTheme.headlineMedium,
+                ),
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                onTap: () {},
+                title: Text(
+                  "درباره تک‌بلاگ",
+                  style: textTheme.headlineMedium,
+                ),
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                onTap: () {},
+                title: Text(
+                  "اشتراک گذاری تک بلاگ",
+                  style: textTheme.headlineMedium,
+                ),
+              ),
+              const Divider(
+                color: SolidColors.dividerColor,
+              ),
+              ListTile(
+                onTap: () {},
+                title: Text(
+                  "تک‌بلاگ در گیت هاب",
+                  style: textTheme.headlineMedium,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: SolidColors.scaffoldBg,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Icon(Icons.menu),
+            InkWell(
+                onTap: () {
+                  _key.currentState!.openDrawer();
+                },
+                child: const Icon(Icons.menu)),
             Image.asset(
               Assets.images.logo.path,
               height: size.height / 13.6,
@@ -40,14 +100,14 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           Positioned.fill(
               child: IndexedStack(
-                      index: selectedPageIndex,
-                      children: [
-          HomeScreen(
-              size: size, textTheme: textTheme, bodyMargin: bodyMargin),
-          ProfileScreen(
-              size: size, textTheme: textTheme, bodyMargin: bodyMargin)
-                      ],
-                    )),
+            index: selectedPageIndex,
+            children: [
+              HomeScreen(
+                  size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+              ProfileScreen(
+                  size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+            ],
+          )),
           BottomNavigation(
             size: size,
             bodyMargin: bodyMargin,
@@ -78,7 +138,7 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 0,
+      bottom: 8,
       right: 0,
       left: 0,
       child: Container(

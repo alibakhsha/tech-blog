@@ -72,9 +72,9 @@ class RegisterIntro extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: TextField(
-                    onChanged: (value) {
-                      print(value + "is Email = " + isEmail(value).toString());
-                    },
+                    // onChanged: (value) {
+                    //   print(value + "is Email = " + isEmail(value).toString());
+                    // },
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                         hintText: "techblog@gmail.com",

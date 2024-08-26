@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/models/data_models.dart';
 import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/my_component.dart';
