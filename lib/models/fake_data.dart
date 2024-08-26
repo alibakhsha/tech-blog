@@ -19,7 +19,8 @@ List<HashTagModel> tagList = [
   HashTagModel(title: "iot"),
   HashTagModel(title: "دارت"),
 ];
-late List<HashTagModel> myCats;
+
+List<HashTagModel> seletedTags = [];
 
 List<BlogModel> blogList = [
   BlogModel(

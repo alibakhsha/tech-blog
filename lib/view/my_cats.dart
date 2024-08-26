@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/data_models.dart';
 import 'package:tech_blog/models/fake_data.dart';
+import 'package:tech_blog/my_colors.dart';
 import 'package:tech_blog/my_component.dart';
 import 'package:tech_blog/my_string.dart';
 
@@ -81,8 +83,7 @@ class _MyCatsState extends State<MyCats> {
                             return InkWell(
                                 onTap: () {
                                   setState(() {
-                                    myCats.add(HashTagModel(
-                                        title: tagList[index].title));
+                                    seletedTags.add(tagList[index]);
                                   });
                                 },
                                 child: MainTags(
@@ -97,6 +98,10 @@ class _MyCatsState extends State<MyCats> {
                     Assets.icons.downCatArrow,
                     height: 50,
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  //selected tags
                   Padding(
                     padding: const EdgeInsets.only(top: 32),
                     child: SizedBox(
@@ -105,16 +110,50 @@ class _MyCatsState extends State<MyCats> {
                       child: GridView.builder(
                           physics: const ClampingScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: tagList.length,
+                          itemCount: seletedTags.length,
                           scrollDirection: Axis.horizontal,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisSpacing: 5,
                                   mainAxisSpacing: 5,
                                   crossAxisCount: 2,
-                                  childAspectRatio: 0.3),
+                                  childAspectRatio: 0.2),
                           itemBuilder: ((context, index) {
-                            return MainTags(textTheme: textTheme, index: index);
+                            return Container(
+                                height: 60,
+                                decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(24)),
+                                    color: SolidColors.surface),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(16, 8, 8, 8),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        seletedTags[index].title!,
+                                        style: textTheme.headlineSmall,
+                                      ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            seletedTags.removeAt(index);
+                                          });
+                                        },
+                                        child: const Icon(
+                                          CupertinoIcons.delete,
+                                          color: Colors.grey,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ));
                           })),
                     ),
                   ),
