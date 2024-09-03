@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/component/my_colors.dart';
 
 class AppThemes {
   static ThemeData lightTheme = ThemeData(
@@ -58,7 +58,7 @@ class AppThemes {
       displayMedium: TextStyle(
           fontFamily: 'dana',
           fontSize: 14,
-          color: Colors.white,
+          color: Colors.black,
           fontWeight: FontWeight.w300),
       displaySmall: TextStyle(
           fontFamily: 'dana',
