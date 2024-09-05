@@ -8,7 +8,6 @@ class DioService {
         .get(url,
             options: Options(responseType: ResponseType.json, method: "GET"))
         .then((response) {
-      print(response.toString());
       return response;
     });
   }

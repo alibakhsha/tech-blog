@@ -26,9 +26,10 @@ class BlogModel {
   });
 }
 
-class PodcastModel {
+class PodcastsModel {
   int id;
   String imageUrl;
   String title;
-  PodcastModel({required this.id, required this.imageUrl, required this.title});
+  PodcastsModel(
+      {required this.id, required this.imageUrl, required this.title});
 }

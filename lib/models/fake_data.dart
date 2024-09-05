@@ -274,9 +274,9 @@ List<BlogModel> blogList = [
       views: "256"),
 ];
 
-List<PodcastModel> podcastList = [
-  PodcastModel(id: 1, imageUrl: "assets/images/1.png", title: "رمزون"),
-  PodcastModel(id: 2, imageUrl: "assets/images/2.png", title: "رادیو کدیاد"),
-  PodcastModel(id: 3, imageUrl: "assets/images/3.png", title: "تکنوکست"),
-  PodcastModel(id: 4, imageUrl: "assets/images/4.png", title: "پادی کست"),
+List<PodcastsModel> podcastList = [
+  PodcastsModel(id: 1, imageUrl: "assets/images/1.png", title: "رمزون"),
+  PodcastsModel(id: 2, imageUrl: "assets/images/2.png", title: "رادیو کدیاد"),
+  PodcastsModel(id: 3, imageUrl: "assets/images/3.png", title: "تکنوکست"),
+  PodcastsModel(id: 4, imageUrl: "assets/images/4.png", title: "پادی کست"),
 ];
