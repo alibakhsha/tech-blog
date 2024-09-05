@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/component/my_string.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/home_scrren.dart';
@@ -65,7 +66,9 @@ class MainScreen extends StatelessWidget {
                 color: SolidColors.dividerColor,
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  myLaunchUrl(MyString.techBlogGithubUrl);
+                },
                 title: Text(
                   "تک‌بلاگ در گیت هاب",
                   style: textTheme.headlineMedium,
