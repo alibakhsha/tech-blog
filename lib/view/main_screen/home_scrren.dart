@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
@@ -28,20 +27,19 @@ class HomeScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: SafeArea(
         child: Obx(
-          ()=> Padding(
-            padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-            child: homeScreenController.loading.value == false
-                ?Column(
+          () => Padding(
+              padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
+              child: homeScreenController.loading.value == false
+                  ? Column(
                       children: [
                         poster(),
-          
+
                         const SizedBox(
                           height: 16,
                         ),
-          
-                        HomePageTagList(
-                            bodyMargin: bodyMargin, textTheme: textTheme),
-          
+
+                        tags(),
+
                         const SizedBox(
                           height: 32,
                         ),
@@ -51,10 +49,10 @@ class HomeScreen extends StatelessWidget {
                           text: MyString.viewHotestBlog,
                           icon: AssetImage(Assets.icons.bluepen.path),
                         ),
-          
+
                         // blog list
                         topVisited(),
-          
+
                         const SizedBox(
                           height: 32,
                         ),
@@ -64,17 +62,16 @@ class HomeScreen extends StatelessWidget {
                           text: MyString.viewHotestPodCasts,
                           icon: AssetImage(Assets.icons.bluemic.path),
                         ),
-          
+
                         // Podcast list
                         topPodcast(),
-          
+
                         const SizedBox(
                           height: 50,
                         ),
                       ],
                     )
-                : const Center(child: Loading())
-          ),
+                  : const Center(child: Loading())),
         ),
       ),
     );
@@ -117,8 +114,7 @@ class HomeScreen extends StatelessWidget {
                                   image: DecorationImage(
                                       image: imageProvider, fit: BoxFit.cover)),
                             ),
-                            placeholder: (context, url) =>
-                                const Loading(),
+                            placeholder: (context, url) => const Loading(),
                             errorWidget: (context, url, error) => const Icon(
                               Icons.image_not_supported_outlined,
                               size: 50,
@@ -297,6 +293,25 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
+
+  Widget tags(){
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: tagList.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
+            child: MainTags(
+              textTheme: textTheme,
+              index: index,
+            ),
+          );
+        },
+      ),
+    );
+  }
 }
 
 class HomePageSeeMore extends StatelessWidget {
@@ -331,33 +346,3 @@ class HomePageSeeMore extends StatelessWidget {
   }
 }
 
-class HomePageTagList extends StatelessWidget {
-  const HomePageTagList({
-    super.key,
-    required this.bodyMargin,
-    required this.textTheme,
-  });
-
-  final double bodyMargin;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: tagList.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
-            child: MainTags(
-              textTheme: textTheme,
-              index: index,
-            ),
-          );
-        },
-      ),
-    );
-  }
-}

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
+import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/component/my_colors.dart';
@@ -58,8 +60,8 @@ class MainTags extends StatelessWidget {
                 width: 8,
               ),
               Text(
-                tagList[index].title!,
-                style: textTheme.headlineSmall,
+                Get.find<HomeScreenController>().tagsList[index].title!,
+                style: textTheme.labelSmall,
               )
             ],
           ),
@@ -89,3 +91,42 @@ class Loading extends StatelessWidget {
     );
   }
 }
+
+  PreferredSize appBar(String title,TextTheme textTheme) {
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(80),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Center(
+                  child: Text(
+                title,
+                style: textTheme.bodyMedium,
+              )),
+            )
+          ],
+          leading: Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  color: SolidColors.primaryColor.withAlpha(100),
+                  shape: BoxShape.circle),
+              child: const Icon(
+                Icons.keyboard_arrow_right_rounded,
+                size: 30,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    
+  }

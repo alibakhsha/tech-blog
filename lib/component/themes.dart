@@ -75,6 +75,16 @@ class AppThemes {
           fontSize: 14,
           color: SolidColors.hintText,
           fontWeight: FontWeight.w700),
+      labelSmall: TextStyle(
+          fontFamily: 'dana',
+          fontSize: 14,
+          color: Colors.white,
+          fontWeight: FontWeight.w700),
+      bodyMedium: TextStyle(
+          fontFamily: 'dana',
+          fontSize: 16,
+          color: Colors.black,
+          fontWeight: FontWeight.w700),
     ),
   );
 }
