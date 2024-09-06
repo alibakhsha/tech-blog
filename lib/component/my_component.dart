@@ -4,7 +4,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/models/fake_data.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -94,7 +93,7 @@ class Loading extends StatelessWidget {
 
   PreferredSize appBar(String title,TextTheme textTheme) {
     return PreferredSize(
-      preferredSize: const Size.fromHeight(80),
+      preferredSize: const Size.fromHeight(60),
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: AppBar(
@@ -128,5 +127,5 @@ class Loading extends StatelessWidget {
         ),
       ),
     );
-    
+
   }

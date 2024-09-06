@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
-      home: const ArticleListScreen(),
+      home: ArticleListScreen(),
     );
   }
 }
