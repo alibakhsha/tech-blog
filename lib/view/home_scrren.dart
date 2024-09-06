@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
@@ -92,21 +94,33 @@ class HomeScreen extends StatelessWidget {
                       height: size.height / 5.4,
                       width: size.width / 2.5,
                       child: Stack(children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(16)),
-                              image: DecorationImage(
-                                  image: NetworkImage(homeScreenController
-                                      .topVisitedList[index].image!),
-                                  fit: BoxFit.cover)),
-                          foregroundDecoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.bottomCenter,
-                                  end: Alignment.topCenter,
-                                  colors: GradientColors.blogPost)),
+                        CachedNetworkImage(
+                          imageUrl:
+                              homeScreenController.topVisitedList[index].image!,
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(16)),
+                                image: DecorationImage(
+                                    image: imageProvider, fit: BoxFit.cover)),
+                            foregroundDecoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                                gradient: LinearGradient(
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter,
+                                    colors: GradientColors.blogPost)),
+                          ),
+                          placeholder: (context, url) =>
+                              const SpinKitFoldingCube(
+                            color: SolidColors.primaryColor,
+                            size: 32.0,
+                          ),
+                          errorWidget: (context, url, error) => const Icon(
+                            Icons.image_not_supported_outlined,
+                            size: 50,
+                            color: Colors.grey,
+                          ),
                         ),
                         Positioned(
                           bottom: 8,
@@ -177,17 +191,26 @@ class HomeScreen extends StatelessWidget {
                     child: SizedBox(
                       height: size.height / 5.66,
                       width: size.width / 2.8,
-                      child: Stack(children: [
-                        Container(
+                      child: CachedNetworkImage(
+                        imageUrl:
+                            homeScreenController.topPodcastsList[index].poster!,
+                        imageBuilder: (context, imageProvider) => Container(
                           decoration: BoxDecoration(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(16)),
                               image: DecorationImage(
-                                  image: AssetImage(homeScreenController
-                                      .topPodcastsList[index].poster!),
-                                  fit: BoxFit.cover)),
+                                  image: imageProvider, fit: BoxFit.cover)),
                         ),
-                      ]),
+                        placeholder: (context, url) => const SpinKitFadingCube(
+                          color: SolidColors.primaryColor,
+                          size: 32.0,
+                        ),
+                        errorWidget: (context, url, error) => const Icon(
+                          Icons.image_not_supported_outlined,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
