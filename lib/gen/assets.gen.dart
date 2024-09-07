@@ -61,6 +61,10 @@ class $AssetsImagesGen {
   AssetGenImage get posterTest =>
       const AssetGenImage('assets/images/poster_test.png');
 
+  /// File path: assets/images/poster_test2.png
+  AssetGenImage get posterTest2 =>
+      const AssetGenImage('assets/images/poster_test2.png');
+
   /// File path: assets/images/splashSc.png
   AssetGenImage get splashSc =>
       const AssetGenImage('assets/images/splashSc.png');
@@ -73,8 +77,18 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/user_profile.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [a1, a2, a3, a4, logo, posterTest, splashSc, techBot, userProfile];
+  List<dynamic> get values => [
+        a1,
+        a2,
+        a3,
+        a4,
+        logo,
+        posterTest,
+        posterTest2,
+        splashSc,
+        techBot,
+        userProfile
+      ];
 }
 
 class Assets {

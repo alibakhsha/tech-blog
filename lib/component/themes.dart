@@ -43,6 +43,11 @@ class AppThemes {
     brightness: Brightness.light,
     hintColor: SolidColors.primaryColor,
     textTheme: const TextTheme(
+      titleLarge: TextStyle(
+          fontFamily: 'dana',
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          color: Colors.black),
       displayLarge: TextStyle(
           fontFamily: 'dana',
           fontSize: 16,
@@ -69,6 +74,11 @@ class AppThemes {
           fontFamily: 'dana',
           fontSize: 14,
           color: Color.fromARGB(255, 70, 70, 70),
+          fontWeight: FontWeight.w700),
+      labelMedium: TextStyle(
+          fontFamily: 'dana',
+          fontSize: 16,
+          color: Color.fromARGB(255, 72, 72, 72),
           fontWeight: FontWeight.w700),
       headlineSmall: TextStyle(
           fontFamily: 'dana',

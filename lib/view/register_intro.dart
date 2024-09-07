@@ -33,7 +33,7 @@ class RegisterIntro extends StatelessWidget {
               padding: const EdgeInsets.only(top: 32),
               child: ElevatedButton(
                 onPressed: () {
-                  _shoeEmailBttomSheet(context, size, textTheme);
+                  _showEmailBttomSheet(context, size, textTheme);
                 },
                 child: const Text("بزن بریم"),
               ),
@@ -44,7 +44,7 @@ class RegisterIntro extends StatelessWidget {
     ));
   }
 
-  Future<dynamic> _shoeEmailBttomSheet(
+  Future<dynamic> _showEmailBttomSheet(
       BuildContext context, Size size, TextTheme textTheme) {
     return showModalBottomSheet(
       isScrollControlled: true,

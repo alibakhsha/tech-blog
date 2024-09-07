@@ -27,7 +27,7 @@ class MyString {
 www.sasansafari.com
 
 """;
-  static const String podcastEmpty = """  
+  static const String podcastEmpty = """
 
   هنوز هیچ پادکست ای به جامعه گیک های فارسی 
 اضافه نکردی !!!
@@ -36,6 +36,11 @@ www.sasansafari.com
   static const String successfulRegistration = """
 تبریک میگم ، ایمیل با موفقیت تایید شد
 لطفا اطلاعات ثبت نام رو کامل کن
+""";
+  static const String articleInfo =
+      """چند ماه پیش جدیدترین قسمت از مجموعه بازی‌های اساسینز کرید عرضه شد. بازی اساسینز کرید والهالا ماجرای قاتلان تاریخی را در سرزمین وایکینگ‌ها روایت می‌کند و تفاوت عظیمی با بازی‌های اصلی این سری دارد. البته چیزی که در این بازی حاضر هست و در دیگر بازی‌های این سری هم همیشه موجود بوده، حجم بالایی از محتوای مخفی و رازهای عجیب و غریب است. قصد داریم تا نگاهی به آن‌ها داشته باشیم تا در صورتی که آن‌ها را ندیده‌اید، غافل نمانید.
+
+سری بازی‌های اساسینز کرید این روز‌ها شباهت بیش‌تری به بازی‌های نقش‌آفرینی دارند تا اساسینز کرید. گیم‌پلی این بازی‌ها تا حد زیادی تغییر کرده و المان‌های نقش‌آفرینی زیادی به آن‌ها اضافه شده. بازی اساسینز کرید والهالا همانند بازی‌های نقش‌آفرینی بسیار بزرگ شده و جارو کردن دنیای پهناور آن بیش‌تر از صد ساعت زمان می‌خواهد. در میان این نقشه‌ی بزرگ، نکات مخفی زیادی که در جوامع گیمرها به آن‌ها «ایستر اگ» (Easter Egg) گفته می‌شود وجود دارند.
 """;
 
   static String titltArrticle =
@@ -50,55 +55,56 @@ www.sasansafari.com
   static String titleAppBarArticleContentEditor = "نوشتن/ویرایش مقاله ";
   static String hintArticleContentEditor = "میتونی مقاله‌تو اینجا بنویسی...";
   static String textManageArticle = "بریم برای نوشتن یه مقاله باحال";
-  static String titleDialogSingleManageArticle ="عنوان مقاله";
-  static String hintTextSingleManageArticle ="اینجا بنویس";
-  static String save ="ثبت";
-  static String selectImage ="انتخاب تصویر";
-  static String editTitleArticle ="ویرایش عنوان مقاله";
-  static String editTitlePodcast ="ویرایش عنوان پادکست";
-  static String editMainTextArticle ='ویرایش متن اصلی مقاله';
-  static String selectCategory ="انتخاب دسته بندی";
-  static String noCategorySelected ="هیچ دسته بندی انتخاب نشده";
+  static String titleDialogSingleManageArticle = "عنوان مقاله";
+  static String hintTextSingleManageArticle = "اینجا بنویس";
+  static String save = "ثبت";
+  static String selectImage = "انتخاب تصویر";
+  static String editTitleArticle = "ویرایش عنوان مقاله";
+  static String editTitlePodcast = "ویرایش عنوان پادکست";
+  static String editMainTextArticle = 'ویرایش متن اصلی مقاله';
+  static String selectCategory = "انتخاب دسته بندی";
+  static String noCategorySelected = "هیچ دسته بندی انتخاب نشده";
   static String wait = "ٌصبر کنید ...";
   static String sendText = "ارسال مطلب";
   static String anonymousText = "ناشناس";
   static String writePodcast = "write podcast";
   static String titleArticleText = "مقالات";
-  static String userProfile =  "پروفایل کاربری";
-  static String aboutTec =  "درباره تکبلاگ";
-  static String shareTec =  "اشتراک گذاری تک بلاگ";
-  static String tecIngithub =  "تک‌بلاگ در گیت هاب";
-  static String shareKnowledge =  "دونسته هات رو با بقیه به اشتراک بذار ...";
-  static String gigTech =  """
+  static String userProfile = "پروفایل کاربری";
+  static String aboutTec = "درباره تکبلاگ";
+  static String shareTec = "اشتراک گذاری تک بلاگ";
+  static String tecIngithub = "تک‌بلاگ در گیت هاب";
+  static String shareKnowledge = "دونسته هات رو با بقیه به اشتراک بذار ...";
+  static String gigTech = """
 فکر کن !!  اینجا بودنت به این معناست که یک گیک تکنولوژی هستی
 دونسته هات رو با  جامعه‌ی گیک های فارسی زبان به اشتراک بذار..
 """;
 
-  static String nameFatemeAmiri =  "فاطمه امیری";
-  static String gmailFatemeAmiri =  "fatemeamiri@gmail.com";
-  static String exit =  "خروج";
-  static String cancel =  "لغو";
-  static String error =  "خطا";
-  static String errorText =  "Eror";
-  static String youAlreadyLeft =   "قبلا خارج شدی !!";
-  static String areYouSureExit ="آیا از خروج خود مطمئن هستید ؟";
-  static String addNewPodcast ="اضافه کردن یک پادکست جدید";
-  static String addNewFile ="اضافه کردن فایل";
-  static String frilance ="بخش چهارم : فریلنسر دیوانه";
-  static String meaningFullTitle ="لطفا یک عنوان پرمعنا انتخاب کن";
-  static String verification ="تایید";
-  static String  later="بعدا";
-  static String  minute="دقیقه";
-  static String  houre="ساعت";
-  static String  isEmail="isEmail:";
-  static String  tecEmail="techblog@gmail.com";
-  static String  enterEmaile= "لطفا ایمیل خود را به درستی وارد کنید";
-  static String  formatEmailNotCorrect= "فرمت ایمیل درست نمیباشد, لطفا ایمیل خود را به درستی وارد کنید";
-  static String  selectAudioFile="انتخاب فابل صوتی";
-  static String  enterNumber = "Enter Number";
-  static String  continuation = "ادامه";
-  static String  letsGo = "بزن بریم";
-  static String  stars = "******";
-  static String  nameAndFamilyName = "نام و نام خانوادگی";
-  static String  addNewTimeFile="لطفا زمان و فایل قسمت جدید پادکست رو وارد کن";
+  static String nameFatemeAmiri = "فاطمه امیری";
+  static String gmailFatemeAmiri = "fatemeamiri@gmail.com";
+  static String exit = "خروج";
+  static String cancel = "لغو";
+  static String error = "خطا";
+  static String errorText = "Eror";
+  static String youAlreadyLeft = "قبلا خارج شدی !!";
+  static String areYouSureExit = "آیا از خروج خود مطمئن هستید ؟";
+  static String addNewPodcast = "اضافه کردن یک پادکست جدید";
+  static String addNewFile = "اضافه کردن فایل";
+  static String frilance = "بخش چهارم : فریلنسر دیوانه";
+  static String meaningFullTitle = "لطفا یک عنوان پرمعنا انتخاب کن";
+  static String verification = "تایید";
+  static String later = "بعدا";
+  static String minute = "دقیقه";
+  static String houre = "ساعت";
+  static String isEmail = "isEmail:";
+  static String tecEmail = "techblog@gmail.com";
+  static String enterEmaile = "لطفا ایمیل خود را به درستی وارد کنید";
+  static String formatEmailNotCorrect =
+      "فرمت ایمیل درست نمیباشد, لطفا ایمیل خود را به درستی وارد کنید";
+  static String selectAudioFile = "انتخاب فابل صوتی";
+  static String enterNumber = "Enter Number";
+  static String continuation = "ادامه";
+  static String letsGo = "بزن بریم";
+  static String stars = "******";
+  static String nameAndFamilyName = "نام و نام خانوادگی";
+  static String addNewTimeFile = "لطفا زمان و فایل قسمت جدید پادکست رو وارد کن";
 }
