@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/themes.dart';
 import 'package:tech_blog/view/article_list_screen.dart';
-import 'package:tech_blog/view/article_content_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -19,18 +18,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa'), // Farsi
-      ],
+    return GetMaterialApp(
+      locale: const Locale('fa'),
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
-      home: ArticleContentScreen(),
+      home: ArticleListScreen(),
     );
   }
 }

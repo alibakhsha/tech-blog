@@ -65,6 +65,10 @@ class $AssetsImagesGen {
   AssetGenImage get posterTest2 =>
       const AssetGenImage('assets/images/poster_test2.png');
 
+  /// File path: assets/images/single_place_holder.jpg
+  AssetGenImage get singlePlaceHolder =>
+      const AssetGenImage('assets/images/single_place_holder.jpg');
+
   /// File path: assets/images/splashSc.png
   AssetGenImage get splashSc =>
       const AssetGenImage('assets/images/splashSc.png');
@@ -85,6 +89,7 @@ class $AssetsImagesGen {
         logo,
         posterTest,
         posterTest2,
+        singlePlaceHolder,
         splashSc,
         techBot,
         userProfile

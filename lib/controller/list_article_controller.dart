@@ -3,7 +3,7 @@ import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/models/article_model.dart';
 import 'package:tech_blog/services/dio_service.dart';
 
-class ArticleController extends GetxController {
+class ListArticleController extends GetxController {
   RxList<ArticleModel> articleList = RxList();
   RxBool loading = false.obs;
 
@@ -21,7 +21,6 @@ class ArticleController extends GetxController {
       response.data.forEach((element) {
         articleList.add(ArticleModel.fromJson(element));
       });
-
 
       loading.value = false;
     }

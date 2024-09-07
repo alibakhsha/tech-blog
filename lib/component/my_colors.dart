@@ -55,7 +55,6 @@ class GradientColors {
   static const List<Color> articlePosterCoverGradiant = [
     Color.fromARGB(255, 46, 3, 71),
     Color.fromARGB(0, 128, 128, 128),
-    Color.fromARGB(0, 0, 0, 0),
   ];
 
   static const List<Color> singleAppbarGradiant = [
