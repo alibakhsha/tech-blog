@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/models/article_info_model.dart';
+import 'package:tech_blog/models/article_model.dart';
+import 'package:tech_blog/models/tags_model.dart';
 import 'package:tech_blog/services/dio_service.dart';
 
 class SingleArticleController extends GetxController {
@@ -8,6 +10,9 @@ class SingleArticleController extends GetxController {
   RxInt id = RxInt(0);
   Rx<ArticleInfoModel> articleInfoModel =
       ArticleInfoModel(null, null, null).obs;
+
+  RxList<TagsModel> tagsList = RxList();
+  RxList<ArticleModel> relatedList = RxList();
 
   getArticleInfo(var id) async {
     articleInfoModel = ArticleInfoModel(null, null, null).obs;
@@ -21,5 +26,16 @@ class SingleArticleController extends GetxController {
 
       loading.value = false;
     }
+
+    tagsList.clear();
+      response.data['tags'].forEach((element) {
+        tagsList.add(TagsModel.fromJson(element));
+      });
+
+      
+    relatedList.clear();
+      response.data['related'].forEach((element) {
+        relatedList.add(ArticleModel.fromJson(element));
+      });
   }
 }

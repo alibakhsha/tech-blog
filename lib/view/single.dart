@@ -5,22 +5,22 @@ import 'package:get/get.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
+import 'package:tech_blog/controller/list_article_controller.dart';
 import 'package:tech_blog/controller/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/view/article_list_screen.dart';
 
 class Single extends StatelessWidget {
   Single({
     super.key,
   });
 
-
-
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
 
   // SingleArticleController singleArticleController =
   //     Get.put(SingleArticleController());
 
-var singleArticleController = Get.find<SingleArticleController>();
+  var singleArticleController = Get.find<SingleArticleController>();
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -29,7 +29,7 @@ var singleArticleController = Get.find<SingleArticleController>();
         child: Scaffold(
       body: SingleChildScrollView(
         child: Obx(
-          ()=> Column(
+          () => Column(
             children: [
               Stack(
                 children: [
@@ -109,7 +109,8 @@ var singleArticleController = Get.find<SingleArticleController>();
                           width: 12,
                         ),
                         Text(
-                          singleArticleController.articleInfoModel.value.author!,
+                          singleArticleController
+                              .articleInfoModel.value.author!,
                           style: textTheme.bodyMedium,
                         ),
                         const SizedBox(
@@ -126,13 +127,15 @@ var singleArticleController = Get.find<SingleArticleController>();
                         padding:
                             const EdgeInsets.only(right: 12, left: 12, top: 16),
                         child: HtmlWidget(
-                          singleArticleController.articleInfoModel.value.content!,
+                          singleArticleController
+                              .articleInfoModel.value.content!,
                           textStyle: textTheme.labelMedium,
                           enableCaching: true,
-                          onLoadingBuilder: (context, element, loadingProgress) =>
-                              const Loading(),
+                          onLoadingBuilder:
+                              (context, element, loadingProgress) =>
+                                  const Loading(),
                         )
-          
+
                         // Text(
                         //   MyString.articleInfo,
                         //   style: textTheme.labelMedium,
@@ -143,24 +146,42 @@ var singleArticleController = Get.find<SingleArticleController>();
                           const EdgeInsets.only(right: 12, left: 12, top: 16),
                       child: SizedBox(
                           width: double.infinity,
-                          height: 30,
+                          height: 50,
                           child: ListView.builder(
                             physics: const ClampingScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: 2,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              return Container(
-                                width: 100,
-                                decoration: const BoxDecoration(
-                                    color: SolidColors.surface,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(40))),
-                                child: Center(
-                                    child: Text(
-                                  "کامپیوتر",
-                                  style: textTheme.displayMedium,
-                                )),
+                              return GestureDetector(
+                                onTap: () async {
+                                  var tagId = singleArticleController
+                                      .tagsList[index].id!;
+                                  await Get.find<ListArticleController>()
+                                      .getArticleListWithTagsId(tagId);
+
+                                  Get.to(ArticleListScreen());
+                                },
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 8, top: 8),
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        color: SolidColors.surface,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(40))),
+                                    child: Center(
+                                        child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          24, 10, 24, 10),
+                                      child: Text(
+                                        singleArticleController
+                                            .tagsList[index].title!,
+                                        style: textTheme.displayMedium,
+                                      ),
+                                    )),
+                                  ),
+                                ),
                               );
                             },
                           )),
@@ -177,10 +198,7 @@ var singleArticleController = Get.find<SingleArticleController>();
                         ],
                       ),
                     ),
-                    TopVisited(
-                        size: size,
-                        homeScreenController: homeScreenController,
-                        textTheme: textTheme)
+                    topVisited()
                   ],
                 ),
               )
@@ -190,27 +208,13 @@ var singleArticleController = Get.find<SingleArticleController>();
       ),
     ));
   }
-}
 
-class TopVisited extends StatelessWidget {
-  const TopVisited({
-    super.key,
-    required this.size,
-    required this.homeScreenController,
-    required this.textTheme,
-  });
-
-  final Size size;
-  final HomeScreenController homeScreenController;
-  final TextTheme textTheme;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget topVisited() {
     return SizedBox(
-      height: size.height / 3.6,
+      height: Get.height / 3.6,
       child: Obx(
         () => ListView.builder(
-          itemCount: homeScreenController.topVisitedList.length,
+          itemCount: singleArticleController.relatedList.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             // blog item
@@ -221,8 +225,8 @@ class TopVisited extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
-                      height: size.height / 5.4,
-                      width: size.width / 2.5,
+                      height: Get.height / 5.4,
+                      width: Get.width / 2.5,
                       child: Stack(children: [
                         Container(
                           foregroundDecoration: const BoxDecoration(
@@ -233,8 +237,8 @@ class TopVisited extends StatelessWidget {
                                   end: Alignment.topCenter,
                                   colors: GradientColors.blogPost)),
                           child: CachedNetworkImage(
-                            imageUrl: homeScreenController
-                                .topVisitedList[index].image!,
+                            imageUrl: singleArticleController
+                                .relatedList[index].image!,
                             imageBuilder: (context, imageProvider) => Container(
                               decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.all(
@@ -258,16 +262,18 @@ class TopVisited extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                homeScreenController
-                                    .topVisitedList[index].author!,
-                                style: textTheme.titleMedium,
+                                singleArticleController
+                                    .relatedList[index].author!,
+                                style: Theme.of(context).textTheme.titleMedium,
                               ),
                               Row(
                                 children: [
                                   Text(
-                                      homeScreenController
-                                          .topVisitedList[index].view!,
-                                      style: textTheme.titleMedium),
+                                      singleArticleController
+                                          .relatedList[index].view!,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium),
                                   const SizedBox(
                                     width: 4,
                                   ),
@@ -285,9 +291,9 @@ class TopVisited extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                      width: size.width / 2.5,
+                      width: Get.width / 2.5,
                       child: Text(
-                        homeScreenController.topVisitedList[index].title!,
+                        singleArticleController.relatedList[index].title!,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: Theme.of(context).textTheme.displayMedium,
