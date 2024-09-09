@@ -4,10 +4,10 @@ import 'package:get/get.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/controller/list_article_controller.dart';
 import 'package:tech_blog/controller/single_article_controller.dart';
-import 'package:tech_blog/view/single.dart';
 
 class ArticleListScreen extends StatelessWidget {
-  ArticleListScreen({super.key});
+  String title;
+  ArticleListScreen({super.key, required this.title});
 
   ListArticleController listArticleController =
       Get.put(ListArticleController());
@@ -21,7 +21,7 @@ class ArticleListScreen extends StatelessWidget {
 
     return SafeArea(
         child: Scaffold(
-      appBar: appBar("مقالات جدید", textTheme),
+      appBar: appBar(title, textTheme),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
@@ -32,9 +32,8 @@ class ArticleListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () async {
-                            await singleArticleController.getArticleInfo(
-                                listArticleController.articleList[index].id);
-                    Get.to(Single());
+                    await singleArticleController.getArticleInfo(
+                        listArticleController.articleList[index].id);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

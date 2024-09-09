@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
@@ -91,26 +90,28 @@ class Loading extends StatelessWidget {
   }
 }
 
-  PreferredSize appBar(String title,TextTheme textTheme) {
-    return PreferredSize(
-      preferredSize: const Size.fromHeight(60),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Center(
-                  child: Text(
-                title,
-                style: textTheme.bodyMedium,
-              )),
-            )
-          ],
-          leading: Padding(
-            padding: const EdgeInsets.only(right: 16),
+PreferredSize appBar(String title, TextTheme textTheme) {
+  return PreferredSize(
+    preferredSize: const Size.fromHeight(60),
+    child: Padding(
+      padding: const EdgeInsets.all(12),
+      child: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Center(
+                child: Text(
+              title,
+              style: textTheme.bodyMedium,
+            )),
+          )
+        ],
+        leading: Padding(
+          padding: const EdgeInsets.only(right: 16),
+          child: GestureDetector(
+            onTap: ()=> Get.back(),
             child: Container(
               height: 40,
               width: 40,
@@ -126,6 +127,6 @@ class Loading extends StatelessWidget {
           ),
         ),
       ),
-    );
-
-  }
+    ),
+  );
+}

@@ -4,6 +4,7 @@ import 'package:tech_blog/models/article_info_model.dart';
 import 'package:tech_blog/models/article_model.dart';
 import 'package:tech_blog/models/tags_model.dart';
 import 'package:tech_blog/services/dio_service.dart';
+import 'package:tech_blog/view/single.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = false.obs;
@@ -28,14 +29,15 @@ class SingleArticleController extends GetxController {
     }
 
     tagsList.clear();
-      response.data['tags'].forEach((element) {
-        tagsList.add(TagsModel.fromJson(element));
-      });
+    response.data['tags'].forEach((element) {
+      tagsList.add(TagsModel.fromJson(element));
+    });
 
-      
     relatedList.clear();
-      response.data['related'].forEach((element) {
-        relatedList.add(ArticleModel.fromJson(element));
-      });
+    response.data['related'].forEach((element) {
+      relatedList.add(ArticleModel.fromJson(element));
+    });
+
+    Get.to(Single());
   }
 }
