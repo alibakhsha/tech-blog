@@ -1,8 +1,5 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:dio/dio.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:dio/dio.dart' as dio_service;
 
 class DioService {
   Dio dio = Dio();
@@ -22,7 +19,7 @@ class DioService {
 
     return await dio
         .post(url,
-            data: map,
+            data: dio_service.FormData.fromMap(map),
             options: Options(responseType: ResponseType.json, method: "POST"))
         .then((value) {
       print(value.headers.toString());

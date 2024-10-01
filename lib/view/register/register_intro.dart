@@ -87,6 +87,8 @@ class RegisterIntro extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    registerController.register();
+
                     Navigator.pop(context);
                     _activateCodeBttomSheet(context, size, textTheme);
                   },
@@ -127,7 +129,8 @@ class RegisterIntro extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: TextField(
-                    controller: registerController.activeCodeTextEditingController,
+                    controller:
+                        registerController.activeCodeTextEditingController,
                     // onChanged: (value) {
                     //   print(value + "is Email = " + isEmail(value).toString());
                     // },
