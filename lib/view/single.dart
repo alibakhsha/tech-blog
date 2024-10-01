@@ -11,6 +11,7 @@ import 'package:tech_blog/controller/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/article_list_screen.dart';
 
+// ignore: must_be_immutable
 class Single extends StatelessWidget {
   Single({
     super.key,

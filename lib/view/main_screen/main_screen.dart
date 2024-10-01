@@ -9,9 +9,11 @@ import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/main_screen/home_scrren.dart';
 import 'package:tech_blog/view/main_screen/profile_screen.dart';
+import 'package:tech_blog/view/register/register_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+// ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
   RxInt selectedPageIndex = 0.obs;
 
@@ -175,7 +177,10 @@ class BottomNavigation extends StatelessWidget {
                       color: Colors.white,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      //TODO Check Login Status
+                      Get.to(RegisterIntro());
+                    },
                     icon: ImageIcon(
                       AssetImage(Assets.icons.wbtn.path),
                       color: Colors.white,
