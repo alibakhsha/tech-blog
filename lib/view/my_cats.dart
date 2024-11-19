@@ -77,7 +77,7 @@ class _MyCatsState extends State<MyCats> {
                                   crossAxisSpacing: 5,
                                   mainAxisSpacing: 5,
                                   crossAxisCount: 2,
-                                  childAspectRatio: 0.3),
+                                  childAspectRatio: 0.2),
                           itemBuilder: ((context, index) {
                             return InkWell(
                                 onTap: () {
