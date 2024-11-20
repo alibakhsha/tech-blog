@@ -5,11 +5,11 @@ import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/component/my_string.dart';
+import 'package:tech_blog/controller/register_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/main_screen/home_scrren.dart';
 import 'package:tech_blog/view/main_screen/profile_screen.dart';
-import 'package:tech_blog/view/register/register_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey();
 
@@ -132,7 +132,7 @@ class MainScreen extends StatelessWidget {
 }
 
 class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({
+  BottomNavigation({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -142,6 +142,9 @@ class BottomNavigation extends StatelessWidget {
   final Size size;
   final double bodyMargin;
   final Function(int) changeScreen;
+
+  final RegisterController _registerController =
+      Get.put(RegisterController(), permanent: false);
 
   @override
   Widget build(BuildContext context) {
@@ -179,7 +182,8 @@ class BottomNavigation extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       //TODO Check Login Status
-                      Get.to(RegisterIntro());
+                      // Get.to(RegisterIntro());
+                      _registerController.toggleLogin();
                     },
                     icon: ImageIcon(
                       AssetImage(Assets.icons.wbtn.path),

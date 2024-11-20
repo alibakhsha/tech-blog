@@ -5,6 +5,7 @@ import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/storage_const.dart';
 import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/main_screen/main_screen.dart';
+import 'package:tech_blog/view/register/register_intro.dart';
 
 class RegisterController extends GetxController {
   TextEditingController emailTextEditingController = TextEditingController();
@@ -34,18 +35,34 @@ class RegisterController extends GetxController {
       'command': 'verify'
     };
 
-   debugPrint(map.toString());
+    debugPrint(map.toString());
     var response = await DioService().postMethod(map, ApiConstant.postRegister);
-    debugPrint(response.data);
+    debugPrint(response.data.toString());
 
-    if (response.data['response'] == 'verified') {
-      var box = GetStorage();
-      box.write(token, response.data['token']);
-      box.write(userId, response.data['user_id']);
+    var status = response.data['response'];
 
-      Get.to(MainScreen());
+    switch (status) {
+      case 'verified':
+        var box = GetStorage();
+        box.write(token, response.data['token']);
+        box.write(userId, response.data['user_id']);
+
+        Get.to(()=> MainScreen());
+        break;
+      case 'incorrect_code ':
+        Get.snackbar("خطا", "کد فعالسازی غلط است");
+        break;
+      case 'expired':
+        Get.snackbar("خطا", "کد فعالسازی منقضی شده است");
+        break;
+    }
+  }
+
+  toggleLogin() {
+    if (GetStorage().read(token) == null) {
+      Get.to(RegisterIntro());
     } else {
-      debugPrint("error");
+      debugPrint('post screen');
     }
   }
 }
