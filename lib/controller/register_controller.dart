@@ -12,7 +12,7 @@ class RegisterController extends GetxController {
       TextEditingController();
 
   var email = '';
-  var user_id = '';
+  var userId = '';
   register() async {
     Map<String, dynamic> map = {
       'email': emailTextEditingController.text,
@@ -22,21 +22,21 @@ class RegisterController extends GetxController {
     var response = await DioService().postMethod(map, ApiConstant.postRegister);
 
     email = emailTextEditingController.text;
-    user_id = response.data['user_id'];
-    print(response);
+    userId = response.data['user_id'];
+    debugPrint(response.toString());
   }
 
   verify() async {
     Map<String, dynamic> map = {
       'email': email,
-      'user_id': user_id,
+      'user_id': userId,
       'code': activeCodeTextEditingController.text,
       'command': 'verify'
     };
 
-    print(map);
+   debugPrint(map.toString());
     var response = await DioService().postMethod(map, ApiConstant.postRegister);
-    print(response.data);
+    debugPrint(response.data);
 
     if (response.data['response'] == 'verified') {
       var box = GetStorage();
@@ -45,7 +45,7 @@ class RegisterController extends GetxController {
 
       Get.to(MainScreen());
     } else {
-      print("error");
+      debugPrint("error");
     }
   }
 }

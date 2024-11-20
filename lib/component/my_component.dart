@@ -72,7 +72,7 @@ myLaunchUrl(String url) async {
   if (await canLaunchUrl(uri)) {
     await launchUrl(uri);
   } else {
-    print("could not launch ${uri.toString()}");
+    debugPrint("could not launch ${uri.toString()}");
   }
 }
 
