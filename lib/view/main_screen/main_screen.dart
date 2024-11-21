@@ -132,7 +132,7 @@ class MainScreen extends StatelessWidget {
 }
 
 class BottomNavigation extends StatelessWidget {
-  BottomNavigation({
+  const BottomNavigation({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -143,8 +143,7 @@ class BottomNavigation extends StatelessWidget {
   final double bodyMargin;
   final Function(int) changeScreen;
 
-  final RegisterController _registerController =
-      Get.put(RegisterController(), permanent: false);
+
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +182,7 @@ class BottomNavigation extends StatelessWidget {
                     onPressed: () {
                       //TODO Check Login Status
                       // Get.to(RegisterIntro());
-                      _registerController.toggleLogin();
+                      Get.find<RegisterController>().toggleLogin();
                     },
                     icon: ImageIcon(
                       AssetImage(Assets.icons.wbtn.path),

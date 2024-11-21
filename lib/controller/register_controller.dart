@@ -47,7 +47,7 @@ class RegisterController extends GetxController {
         box.write(token, response.data['token']);
         box.write(userId, response.data['user_id']);
 
-        Get.to(()=> MainScreen());
+        Get.offAll(()=> MainScreen());
         break;
       case 'incorrect_code ':
         Get.snackbar("خطا", "کد فعالسازی غلط است");

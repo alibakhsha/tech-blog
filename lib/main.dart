@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:tech_blog/binding.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/themes.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      initialBinding: RegisterBinding(),
       locale: const Locale('fa'),
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
