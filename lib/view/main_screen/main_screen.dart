@@ -11,7 +11,7 @@ import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/main_screen/home_scrren.dart';
 import 'package:tech_blog/view/main_screen/profile_screen.dart';
 
-final GlobalKey<ScaffoldState> _key = GlobalKey();
+// final GlobalKey<ScaffoldState> _key = GlobalKey();
 
 // ignore: must_be_immutable
 class MainScreen extends StatelessWidget {
@@ -26,7 +26,7 @@ class MainScreen extends StatelessWidget {
     double bodyMargin = size.width / 10;
 
     return Scaffold(
-      key: _key,
+      // key: _key,
       drawer: Drawer(
         backgroundColor: SolidColors.scaffoldBg,
         child: Padding(
@@ -90,11 +90,16 @@ class MainScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            InkWell(
-                onTap: () {
-                  _key.currentState!.openDrawer();
-                },
-                child: const Icon(Icons.menu)),
+            Builder(
+              builder: (context) {
+                return InkWell(
+                    onTap: () {
+                      // _key.currentState!.openDrawer();
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: const Icon(Icons.menu));
+              }
+            ),
             Image.asset(
               Assets.images.logo.path,
               height: size.height / 13.6,
@@ -142,8 +147,6 @@ class BottomNavigation extends StatelessWidget {
   final Size size;
   final double bodyMargin;
   final Function(int) changeScreen;
-
-
 
   @override
   Widget build(BuildContext context) {
