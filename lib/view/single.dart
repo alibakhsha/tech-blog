@@ -9,6 +9,7 @@ import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/controller/list_article_controller.dart';
 import 'package:tech_blog/controller/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/article_list_screen.dart';
 
 // ignore: must_be_immutable
@@ -21,8 +22,8 @@ class Single extends StatelessWidget {
   ListArticleController listArticleController =
       Get.put(ListArticleController());
 
-  SingleArticleController singleArticleController =
-      Get.put(SingleArticleController());
+  var singleArticleController =
+      Get.find<SingleArticleController>();
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -237,6 +238,8 @@ class Single extends StatelessWidget {
               onTap: () {
                 singleArticleController.getArticleInfo(
                     singleArticleController.relatedList[index].id);
+
+                Get.toNamed(routeSingleArticle);
               },
               child: Padding(
                 padding: EdgeInsets.only(right: index == 0 ? 8 : 15),

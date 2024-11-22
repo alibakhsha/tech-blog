@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/view/main_screen/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,8 @@ class _SplashScreenState extends State<SplashScreen> {
       // ignore: use_build_context_synchronously
       // Navigator.of(context).pushReplacement(
       //     MaterialPageRoute(builder: (context) => MainScreen()));
-      Get.offAll(() => MainScreen());
+      // Get.offAll(() => MainScreen());
+      Get.offAndToNamed(routeMainScreen);
     });
   }
 

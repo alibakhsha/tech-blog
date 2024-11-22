@@ -8,12 +8,13 @@ import 'package:tech_blog/component/my_colors.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tech_blog/component/themes.dart';
 import 'package:tech_blog/my_http_overrides.dart';
+import 'package:tech_blog/view/main_screen/main_screen.dart';
+import 'package:tech_blog/view/single.dart';
 import 'package:tech_blog/view/splash_screen.dart';
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
 
-  
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: SolidColors.statusBarColor,
       statusBarIconBrightness: Brightness.dark,
@@ -28,11 +29,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialBinding: RegisterBinding(),
+      // initialBinding: RegisterBinding(),
       locale: const Locale('fa'),
       debugShowCheckedModeBanner: false,
       theme: AppThemes.lightTheme,
+      getPages: [
+        GetPage(
+            name: routeMainScreen,
+            page: () => MainScreen(),
+            binding: RegisterBinding()),
+        GetPage(
+            name: routeSingleArticle,
+            page: () => Single(),
+            binding: ArticleBinding()),
+      ],
       home: const SplashScreen(),
     );
   }
 }
+
+String routeMainScreen = "/MainScreen";
+String routeSingleArticle = "/SingleArticle";
