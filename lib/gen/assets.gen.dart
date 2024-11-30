@@ -34,9 +34,26 @@ class $AssetsIconsGen {
   /// File path: assets/icons/wbtn.png
   AssetGenImage get wbtn => const AssetGenImage('assets/icons/wbtn.png');
 
+  /// File path: assets/icons/write_article.png
+  AssetGenImage get writeArticle =>
+      const AssetGenImage('assets/icons/write_article.png');
+
+  /// File path: assets/icons/write_podcast.png
+  AssetGenImage get writePodcast =>
+      const AssetGenImage('assets/icons/write_podcast.png');
+
   /// List of all assets
-  List<dynamic> get values =>
-      [bluemic, bluepen, downCatArrow, hashtagicon, homebtn, userbtn, wbtn];
+  List<dynamic> get values => [
+        bluemic,
+        bluepen,
+        downCatArrow,
+        hashtagicon,
+        homebtn,
+        userbtn,
+        wbtn,
+        writeArticle,
+        writePodcast
+      ];
 }
 
 class $AssetsImagesGen {
@@ -133,7 +150,7 @@ class AssetGenImage {
     ImageRepeat repeat = ImageRepeat.noRepeat,
     Rect? centerSlice,
     bool matchTextDirection = false,
-    bool gaplessPlayback = false,
+    bool gaplessPlayback = true,
     bool isAntiAlias = false,
     String? package,
     FilterQuality filterQuality = FilterQuality.low,
