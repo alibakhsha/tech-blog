@@ -109,7 +109,7 @@ class RegisterController extends GetxController {
               style: const TextStyle(
                   fontFamily: "dana",
                   fontSize: 13,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w500,
                   color: Colors.grey),
             ),
             const SizedBox(
@@ -122,46 +122,52 @@ class RegisterController extends GetxController {
                   onTap: () {
                     debugPrint("صفحه مقالات");
                   },
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        Assets.icons.writeArticle.path,
-                        height: 30,
-                      ),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      Text(
-                        MyString.titleAppBarManageArticle,
-                        style: const TextStyle(
-                            fontFamily: "dana",
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          Assets.icons.writeArticle.path,
+                          height: 30,
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          MyString.titleAppBarManageArticle,
+                          style: const TextStyle(
+                              fontFamily: "dana",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 GestureDetector(
                   onTap: () {
                     debugPrint("صفحه پادکست ها");
                   },
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        Assets.icons.writePodcast.path,
-                        height: 30,
-                      ),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      Text(
-                        MyString.managePodcast,
-                        style: const TextStyle(
-                            fontFamily: "dana",
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
+                  child: Container(
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          Assets.icons.writePodcast.path,
+                          height: 30,
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Text(
+                          MyString.managePodcast,
+                          style: const TextStyle(
+                              fontFamily: "dana",
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
