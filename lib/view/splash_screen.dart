@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/constatnt/my_colors.dart';
 import 'package:tech_blog/main.dart';
 
 class SplashScreen extends StatefulWidget {

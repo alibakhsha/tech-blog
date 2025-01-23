@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/my_component.dart';
-import 'package:tech_blog/controller/article/manage_article_contriller.dart';
-import 'package:tech_blog/controller/register_controller.dart';
+import 'package:tech_blog/controller/article/manage_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/my_string.dart';
+import 'package:tech_blog/constatnt/my_string.dart';
 import 'package:tech_blog/main.dart';
 
 // ignore: must_be_immutable
@@ -14,7 +13,7 @@ class ManageArticle extends StatelessWidget {
   ManageArticle({super.key});
 
   // RegisterController registerController = Get.put(RegisterController());
-  var articleManageController = Get.find<ManageArticleContriller>();
+  var articleManageController = Get.find<ManageArticleController>();
 
   @override
   Widget build(BuildContext context) {
@@ -107,8 +106,10 @@ class ManageArticle extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
-          style:ButtonStyle(fixedSize: WidgetStateProperty.all(Size(Get.width/3, 46))),
-          onPressed: () {},
+          style: ButtonStyle(fixedSize: WidgetStateProperty.all(Size(Get.width / 3, 46))),
+          onPressed: () {
+            Get.toNamed(NamedRuote.singleManageArticle);
+          },
           child: Text(
             MyString.textManageArticle,
             style: textTheme.labelSmall,

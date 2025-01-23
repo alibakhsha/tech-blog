@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:tech_blog/component/api_constant.dart';
-import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/component/dimens.dart';
+import 'package:tech_blog/constatnt/api_constant.dart';
+import 'package:tech_blog/constatnt/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
-import 'package:tech_blog/component/my_string.dart';
+import 'package:tech_blog/constatnt/my_string.dart';
 import 'package:tech_blog/controller/register_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/services/dio_service.dart';
@@ -23,14 +24,13 @@ class MainScreen extends StatelessWidget {
     DioService().getMethod(ApiConstant.getHomeItems);
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
-    double bodyMargin = size.width / 10;
 
     return Scaffold(
       // key: _key,
       drawer: Drawer(
         backgroundColor: SolidColors.scaffoldBg,
         child: Padding(
-          padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
+          padding: EdgeInsets.only(right: Dimens.bodyMargin, left: Dimens.bodyMargin),
           child: ListView(
             children: [
               DrawerHeader(
@@ -117,15 +117,15 @@ class MainScreen extends StatelessWidget {
               index: selectedPageIndex.value,
               children: [
                 HomeScreen(
-                    size: size, textTheme: textTheme, bodyMargin: bodyMargin),
+                    size: size, textTheme: textTheme),
                 ProfileScreen(
-                    size: size, textTheme: textTheme, bodyMargin: bodyMargin)
+                    size: size, textTheme: textTheme, bodyMargin: Dimens.bodyMargin)
               ],
             ),
           )),
           BottomNavigation(
             size: size,
-            bodyMargin: bodyMargin,
+            bodyMargin: Dimens.bodyMargin,
             changeScreen: (int value) {
               selectedPageIndex.value = value;
             },

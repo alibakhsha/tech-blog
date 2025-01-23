@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/controller/register_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/my_string.dart';
+import 'package:tech_blog/constatnt/my_string.dart';
 
 // ignore: must_be_immutable
 class RegisterIntro extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/constatnt/my_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
@@ -41,10 +41,8 @@ class MainTags extends StatelessWidget {
         height: 60,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(24)),
-            gradient: LinearGradient(
-                colors: GradientColors.tags,
-                begin: Alignment.centerRight,
-                end: Alignment.centerLeft)),
+            gradient:
+                LinearGradient(colors: GradientColors.tags, begin: Alignment.centerRight, end: Alignment.centerLeft)),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
           child: Row(
@@ -111,13 +109,11 @@ PreferredSize appBar(String title, TextTheme textTheme) {
         leading: Padding(
           padding: const EdgeInsets.only(right: 16),
           child: GestureDetector(
-            onTap: ()=> Get.back(),
+            onTap: () => Get.back(),
             child: Container(
               height: 40,
               width: 40,
-              decoration: BoxDecoration(
-                  color: SolidColors.primaryColor.withAlpha(100),
-                  shape: BoxShape.circle),
+              decoration: BoxDecoration(color: SolidColors.primaryColor.withAlpha(100), shape: BoxShape.circle),
               child: const Icon(
                 Icons.keyboard_arrow_right_rounded,
                 size: 30,
@@ -130,3 +126,37 @@ PreferredSize appBar(String title, TextTheme textTheme) {
     ),
   );
 }
+
+class HomePageSeeMore extends StatelessWidget {
+  const HomePageSeeMore({
+    super.key,
+    required this.bodyMargin,
+    required this.text,
+    required this.icon,
+  });
+
+  final double bodyMargin;
+  final String text;
+  final AssetImage icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: bodyMargin, bottom: 8),
+      child: Row(
+        children: [
+          ImageIcon(
+            icon,
+            color: SolidColors.seeMore,
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          Text(text, style: Theme.of(context).textTheme.headlineMedium)
+        ],
+      ),
+    );
+  }
+}
+
+

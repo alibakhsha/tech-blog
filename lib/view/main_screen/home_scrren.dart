@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tech_blog/component/my_colors.dart';
+import 'package:tech_blog/component/dimens.dart';
+import 'package:tech_blog/constatnt/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
-import 'package:tech_blog/component/my_string.dart';
+import 'package:tech_blog/constatnt/my_string.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
 import 'package:tech_blog/controller/article/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
@@ -16,7 +17,6 @@ class HomeScreen extends StatelessWidget {
     super.key,
     required this.size,
     required this.textTheme,
-    required this.bodyMargin,
   });
 
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
 
   final Size size;
   final TextTheme textTheme;
-  final double bodyMargin;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: () =>
                               Get.to(ArticleListScreen(title: "لیست مقالات")),
                           child: HomePageSeeMore(
-                            bodyMargin: bodyMargin,
+                            bodyMargin: Dimens.bodyMargin,
                             text: MyString.viewHotestBlog,
                             icon: AssetImage(Assets.icons.bluepen.path),
                           ),
@@ -67,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         // see more pudcast
                         HomePageSeeMore(
-                          bodyMargin: bodyMargin,
+                          bodyMargin: Dimens.bodyMargin,
                           text: MyString.viewHotestPodCasts,
                           icon: AssetImage(Assets.icons.bluemic.path),
                         ),
@@ -101,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                     homeScreenController.topVisitedList[index].id);
               },
               child: Padding(
-                padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
+                padding: EdgeInsets.only(right: index == 0 ? Dimens.bodyMargin : 15),
                 child: Column(
                   children: [
                     Padding(
@@ -200,7 +199,7 @@ class HomeScreen extends StatelessWidget {
           itemBuilder: (context, index) {
             // blog item
             return Padding(
-              padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
+              padding: EdgeInsets.only(right: index == 0 ? Dimens.bodyMargin : 15),
               child: Column(
                 children: [
                   Padding(
@@ -328,7 +327,7 @@ class HomeScreen extends StatelessWidget {
             },
             child: Padding(
               padding:
-                  EdgeInsets.fromLTRB(0, 8, index == 0 ? bodyMargin : 15, 8),
+                  EdgeInsets.fromLTRB(0, 8, index == 0 ? Dimens.bodyMargin : 15, 8),
               child: MainTags(
                 textTheme: textTheme,
                 index: index,
@@ -341,34 +340,3 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class HomePageSeeMore extends StatelessWidget {
-  const HomePageSeeMore({
-    super.key,
-    required this.bodyMargin,
-    required this.text,
-    required this.icon,
-  });
-
-  final double bodyMargin;
-  final String text;
-  final AssetImage icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(right: bodyMargin, bottom: 8),
-      child: Row(
-        children: [
-          ImageIcon(
-            icon,
-            color: SolidColors.seeMore,
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          Text(text, style: Theme.of(context).textTheme.headlineMedium)
-        ],
-      ),
-    );
-  }
-}

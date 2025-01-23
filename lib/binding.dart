@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:tech_blog/controller/article/list_article_controller.dart';
-import 'package:tech_blog/controller/article/manage_article_contriller.dart';
+import 'package:tech_blog/controller/article/manage_article_controller.dart';
 import 'package:tech_blog/controller/register_controller.dart';
 import 'package:tech_blog/controller/article/single_article_controller.dart';
 
@@ -18,9 +18,9 @@ class ArticleManagerBinding implements Bindings {
   @override
   void dependencies() {
     // TODO: implement dependencies
-    Get.put(ManageArticleContriller());
+    // Get.put(ManageArticleContriller());
 
-    Get.lazyPut(() => SingleArticleController());
+    Get.lazyPut(() => ManageArticleController());
   }
 }
 

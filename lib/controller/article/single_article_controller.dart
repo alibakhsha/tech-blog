@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:tech_blog/component/api_constant.dart';
+import 'package:tech_blog/constatnt/api_constant.dart';
 import 'package:tech_blog/models/article_info_model.dart';
 import 'package:tech_blog/models/article_model.dart';
 import 'package:tech_blog/models/tags_model.dart';
 import 'package:tech_blog/services/dio_service.dart';
-import 'package:tech_blog/view/aticle/single.dart';
+import 'package:tech_blog/view/aticle/single_article.dart';
 
 class SingleArticleController extends GetxController {
   RxBool loading = false.obs;
