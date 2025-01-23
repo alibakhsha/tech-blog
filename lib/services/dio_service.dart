@@ -11,6 +11,10 @@ class DioService {
             options: Options(responseType: ResponseType.json, method: "GET"))
         .then((response) {
       return response;
+    }).catchError((err){
+      if(err is DioException){
+        return err.response!;
+      }
     });
   }
 
@@ -22,12 +26,16 @@ class DioService {
         .post(url,
             data: dio_service.FormData.fromMap(map),
             options: Options(responseType: ResponseType.json, method: "POST"))
-        .then((value) {
-      debugPrint(value.headers.toString());
-      debugPrint(value.data.toString());
-      debugPrint(value.statusCode.toString());
+        .then((response) {
+      debugPrint(response.headers.toString());
+      debugPrint(response.data.toString());
+      debugPrint(response.statusCode.toString());
 
-      return value;
+      return response;
+    }).catchError((err){
+      if(err is DioException){
+        return err.response!;
+      }
     });
   }
 }
