@@ -5,10 +5,10 @@ import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/component/my_string.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
-import 'package:tech_blog/controller/single_article_controller.dart';
+import 'package:tech_blog/controller/article/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/models/fake_data.dart';
-import 'package:tech_blog/view/article_list_screen.dart';
+import 'package:tech_blog/view/aticle/article_list_screen.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {

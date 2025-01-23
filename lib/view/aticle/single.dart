@@ -6,11 +6,11 @@ import 'package:share_plus/share_plus.dart';
 import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/component/my_component.dart';
 import 'package:tech_blog/controller/home_screen_controller.dart';
-import 'package:tech_blog/controller/list_article_controller.dart';
-import 'package:tech_blog/controller/single_article_controller.dart';
+import 'package:tech_blog/controller/article/list_article_controller.dart';
+import 'package:tech_blog/controller/article/single_article_controller.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/main.dart';
-import 'package:tech_blog/view/article_list_screen.dart';
+import 'package:tech_blog/view/aticle/article_list_screen.dart';
 
 // ignore: must_be_immutable
 class Single extends StatelessWidget {
@@ -19,11 +19,9 @@ class Single extends StatelessWidget {
   });
 
   HomeScreenController homeScreenController = Get.put(HomeScreenController());
-  ListArticleController listArticleController =
-      Get.put(ListArticleController());
+  ListArticleController listArticleController = Get.put(ListArticleController());
 
-  var singleArticleController =
-      Get.find<SingleArticleController>();
+  var singleArticleController = Get.find<SingleArticleController>();
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -38,13 +36,10 @@ class Single extends StatelessWidget {
                     Stack(
                       children: [
                         CachedNetworkImage(
-                            imageUrl: singleArticleController
-                                .articleInfoModel.value.image!,
-                            imageBuilder: (context, imageProvider) =>
-                                Image(image: imageProvider),
+                            imageUrl: singleArticleController.articleInfoModel.value.image!,
+                            imageBuilder: (context, imageProvider) => Image(image: imageProvider),
                             placeholder: (context, url) => const Loading(),
-                            errorWidget: (context, url, error) => Image.asset(
-                                Assets.images.singlePlaceHolder.path)),
+                            errorWidget: (context, url, error) => Image.asset(Assets.images.singlePlaceHolder.path)),
                         Positioned(
                           top: 0,
                           right: 0,
@@ -53,8 +48,7 @@ class Single extends StatelessWidget {
                             height: 60,
                             decoration: const BoxDecoration(
                                 gradient: LinearGradient(
-                                    colors: GradientColors
-                                        .articlePosterCoverGradiant,
+                                    colors: GradientColors.articlePosterCoverGradiant,
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter)),
                             child: Padding(
@@ -83,8 +77,7 @@ class Single extends StatelessWidget {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      await Share.share(singleArticleController
-                                          .articleInfoModel.value.title!);
+                                      await Share.share(singleArticleController.articleInfoModel.value.title!);
                                     },
                                     child: const Icon(
                                       Icons.share,
@@ -104,8 +97,7 @@ class Single extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            singleArticleController
-                                .articleInfoModel.value.title!,
+                            singleArticleController.articleInfoModel.value.title!,
                             style: textTheme.titleLarge,
                             maxLines: 2,
                           ),
@@ -119,38 +111,30 @@ class Single extends StatelessWidget {
                                   width: 40,
                                   decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          image: AssetImage(Assets
-                                              .images.userProfile.path)))),
+                                      image: DecorationImage(image: AssetImage(Assets.images.userProfile.path)))),
                               const SizedBox(
                                 width: 12,
                               ),
                               Text(
-                                singleArticleController
-                                    .articleInfoModel.value.author!,
+                                singleArticleController.articleInfoModel.value.author!,
                                 style: textTheme.bodyMedium,
                               ),
                               const SizedBox(
                                 width: 12,
                               ),
                               Text(
-                                singleArticleController
-                                    .articleInfoModel.value.createdAt!,
+                                singleArticleController.articleInfoModel.value.createdAt!,
                                 style: textTheme.headlineSmall,
                               )
                             ],
                           ),
                           Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 12, left: 12, top: 16),
+                              padding: const EdgeInsets.only(right: 12, left: 12, top: 16),
                               child: HtmlWidget(
-                                singleArticleController
-                                    .articleInfoModel.value.content!,
+                                singleArticleController.articleInfoModel.value.content!,
                                 textStyle: textTheme.labelMedium,
                                 enableCaching: true,
-                                onLoadingBuilder:
-                                    (context, element, loadingProgress) =>
-                                        const Loading(),
+                                onLoadingBuilder: (context, element, loadingProgress) => const Loading(),
                               )
 
                               // Text(
@@ -160,8 +144,7 @@ class Single extends StatelessWidget {
                               ),
                           tags(textTheme),
                           Padding(
-                            padding: const EdgeInsets.only(
-                                right: 16, top: 40, bottom: 16),
+                            padding: const EdgeInsets.only(right: 16, top: 40, bottom: 16),
                             child: Row(
                               children: [
                                 Text(
@@ -207,8 +190,7 @@ class Single extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 8, top: 8),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: SolidColors.surface,
-                        borderRadius: BorderRadius.all(Radius.circular(40))),
+                        color: SolidColors.surface, borderRadius: BorderRadius.all(Radius.circular(40))),
                     child: Center(
                         child: Padding(
                       padding: const EdgeInsets.fromLTRB(24, 10, 24, 10),
@@ -236,10 +218,9 @@ class Single extends StatelessWidget {
             // blog item
             return GestureDetector(
               onTap: () {
-                singleArticleController.getArticleInfo(
-                    singleArticleController.relatedList[index].id);
+                singleArticleController.getArticleInfo(singleArticleController.relatedList[index].id);
 
-                Get.toNamed(routeSingleArticle);
+                Get.toNamed(NamedRuote.routeSingleArticle);
               },
               child: Padding(
                 padding: EdgeInsets.only(right: index == 0 ? 8 : 15),
@@ -253,23 +234,17 @@ class Single extends StatelessWidget {
                         child: Stack(children: [
                           Container(
                             foregroundDecoration: const BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(16)),
+                                borderRadius: BorderRadius.all(Radius.circular(16)),
                                 gradient: LinearGradient(
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
                                     colors: GradientColors.blogPost)),
                             child: CachedNetworkImage(
-                              imageUrl: singleArticleController
-                                  .relatedList[index].image!,
-                              imageBuilder: (context, imageProvider) =>
-                                  Container(
+                              imageUrl: singleArticleController.relatedList[index].image!,
+                              imageBuilder: (context, imageProvider) => Container(
                                 decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(16)),
-                                    image: DecorationImage(
-                                        image: imageProvider,
-                                        fit: BoxFit.cover)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                                    image: DecorationImage(image: imageProvider, fit: BoxFit.cover)),
                               ),
                               placeholder: (context, url) => const Loading(),
                               errorWidget: (context, url, error) => const Icon(
@@ -287,19 +262,13 @@ class Single extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
-                                  singleArticleController
-                                      .relatedList[index].author!,
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium,
+                                  singleArticleController.relatedList[index].author!,
+                                  style: Theme.of(context).textTheme.titleMedium,
                                 ),
                                 Row(
                                   children: [
-                                    Text(
-                                        singleArticleController
-                                            .relatedList[index].view!,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium),
+                                    Text(singleArticleController.relatedList[index].view!,
+                                        style: Theme.of(context).textTheme.titleMedium),
                                     const SizedBox(
                                       width: 4,
                                     ),

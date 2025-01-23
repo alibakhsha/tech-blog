@@ -104,7 +104,7 @@ PreferredSize appBar(String title, TextTheme textTheme) {
             child: Center(
                 child: Text(
               title,
-              style: textTheme.bodyMedium,
+              style: textTheme.titleLarge,
             )),
           )
         ],

@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // Navigator.of(context).pushReplacement(
       //     MaterialPageRoute(builder: (context) => MainScreen()));
       // Get.offAll(() => MainScreen());
-      Get.offAndToNamed(routeMainScreen);
+      Get.offAndToNamed(NamedRuote.routeMainScreen);
     });
   }
 

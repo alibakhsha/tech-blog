@@ -6,22 +6,19 @@ import 'package:tech_blog/component/api_constant.dart';
 import 'package:tech_blog/component/my_string.dart';
 import 'package:tech_blog/component/storage_const.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
+import 'package:tech_blog/main.dart';
 import 'package:tech_blog/services/dio_service.dart';
 import 'package:tech_blog/view/main_screen/main_screen.dart';
 import 'package:tech_blog/view/register/register_intro.dart';
 
 class RegisterController extends GetxController {
   TextEditingController emailTextEditingController = TextEditingController();
-  TextEditingController activeCodeTextEditingController =
-      TextEditingController();
+  TextEditingController activeCodeTextEditingController = TextEditingController();
 
   var email = '';
   var userId = '';
   register() async {
-    Map<String, dynamic> map = {
-      'email': emailTextEditingController.text,
-      'command': 'register'
-    };
+    Map<String, dynamic> map = {'email': emailTextEditingController.text, 'command': 'register'};
 
     var response = await DioService().postMethod(map, ApiConstant.postRegister);
 
@@ -47,8 +44,8 @@ class RegisterController extends GetxController {
     switch (status) {
       case 'verified':
         var box = GetStorage();
-        box.write(token, response.data['token']);
-        box.write(userId, response.data['user_id']);
+        box.write(StorageKey.token, response.data['token']);
+        box.write(StorageKey.userId, response.data['user_id']);
 
         Get.offAll(() => MainScreen());
         break;
@@ -62,7 +59,7 @@ class RegisterController extends GetxController {
   }
 
   toggleLogin() {
-    if (GetStorage().read(token) == null) {
+    if (GetStorage().read(StorageKey.token) == null) {
       Get.to(RegisterIntro());
     } else {
       routeToWriteBottomSheet();
@@ -94,10 +91,7 @@ class RegisterController extends GetxController {
                 ),
                 Text(
                   MyString.shareKnowledge,
-                  style: const TextStyle(
-                      fontFamily: "dana",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontFamily: "dana", fontSize: 16, fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -106,11 +100,7 @@ class RegisterController extends GetxController {
             ),
             Text(
               MyString.gigTech,
-              style: const TextStyle(
-                  fontFamily: "dana",
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.grey),
+              style: const TextStyle(fontFamily: "dana", fontSize: 13, fontWeight: FontWeight.w500, color: Colors.grey),
             ),
             const SizedBox(
               height: 12,
@@ -120,7 +110,8 @@ class RegisterController extends GetxController {
               children: [
                 GestureDetector(
                   onTap: () {
-                    debugPrint("صفحه مقالات");
+                    // debugPrint("صفحه مقالات");
+                    Get.toNamed(NamedRuote.manageArticle);
                   },
                   child: Container(
                     color: Colors.white,
@@ -135,10 +126,7 @@ class RegisterController extends GetxController {
                         ),
                         Text(
                           MyString.titleAppBarManageArticle,
-                          style: const TextStyle(
-                              fontFamily: "dana",
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500),
+                          style: const TextStyle(fontFamily: "dana", fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
@@ -161,10 +149,7 @@ class RegisterController extends GetxController {
                         ),
                         Text(
                           MyString.managePodcast,
-                          style: const TextStyle(
-                              fontFamily: "dana",
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500),
+                          style: const TextStyle(fontFamily: "dana", fontSize: 15, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),

@@ -40,7 +40,7 @@ class RegisterIntro extends StatelessWidget {
                 onPressed: () {
                   _showEmailBttomSheet(context, size, textTheme);
                 },
-                child: const Text("بزن بریم"),
+                child: Text("بزن بریم",style: textTheme.labelSmall),
               ),
             )
           ],

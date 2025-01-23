@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tech_blog/component/my_component.dart';
-import 'package:tech_blog/controller/list_article_controller.dart';
-import 'package:tech_blog/controller/single_article_controller.dart';
+import 'package:tech_blog/controller/article/list_article_controller.dart';
+import 'package:tech_blog/controller/article/single_article_controller.dart';
 import 'package:tech_blog/main.dart';
 
 // ignore: must_be_immutable
@@ -11,10 +11,8 @@ class ArticleListScreen extends StatelessWidget {
   String title;
   ArticleListScreen({super.key, required this.title});
 
-  ListArticleController listArticleController =
-      Get.put(ListArticleController());
-  SingleArticleController singleArticleController =
-      Get.put(SingleArticleController());
+  ListArticleController listArticleController = Get.put(ListArticleController());
+  SingleArticleController singleArticleController = Get.put(SingleArticleController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +26,15 @@ class ArticleListScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
           child: Obx(
-            () => ListView.builder(
+            () => !singleArticleController.loading.value ? ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: listArticleController.articleList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () async {
-                    await singleArticleController.getArticleInfo(
-                        listArticleController.articleList[index].id);
+                    await singleArticleController.getArticleInfo(listArticleController.articleList[index].id);
 
-                    Get.toNamed(routeSingleArticle);
+                    Get.toNamed(NamedRuote.routeSingleArticle);
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -48,16 +45,12 @@ class ArticleListScreen extends StatelessWidget {
                           width: size.width / 3,
                           height: size.height / 6,
                           child: CachedNetworkImage(
-                            imageUrl:
-                                listArticleController.articleList[index].image!,
+                            imageUrl: listArticleController.articleList[index].image!,
                             imageBuilder: (context, imageProvider) {
                               return Container(
                                 decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(16)),
-                                    image: DecorationImage(
-                                        image: imageProvider,
-                                        fit: BoxFit.cover)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                                    image: DecorationImage(image: imageProvider, fit: BoxFit.cover)),
                               );
                             },
                             placeholder: (context, url) => const Loading(),
@@ -89,8 +82,7 @@ class ArticleListScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  listArticleController
-                                      .articleList[index].author!,
+                                  listArticleController.articleList[index].author!,
                                   style: textTheme.headlineSmall,
                                 ),
                                 const SizedBox(
@@ -109,7 +101,7 @@ class ArticleListScreen extends StatelessWidget {
                   ),
                 );
               },
-            ),
+            ): const Loading(),
           ),
         ),
       ),

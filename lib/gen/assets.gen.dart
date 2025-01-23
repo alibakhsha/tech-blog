@@ -93,6 +93,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/tech_bot.svg
   String get techBot => 'assets/images/tech_bot.svg';
 
+  /// File path: assets/images/tech_bot_sad.svg
+  String get techBotSad => 'assets/images/tech_bot_sad.svg';
+
   /// File path: assets/images/user_profile.png
   AssetGenImage get userProfile =>
       const AssetGenImage('assets/images/user_profile.png');
@@ -109,6 +112,7 @@ class $AssetsImagesGen {
         singlePlaceHolder,
         splashSc,
         techBot,
+        techBotSad,
         userProfile
       ];
 }
